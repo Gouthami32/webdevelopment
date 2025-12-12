@@ -1,0 +1,31 @@
+body{
+    background-color:wheat;
+}
+h1{
+    text-align:center;
+}
+.shop{
+    max-width:800px;
+    background-color: rgb(177, 236, 217);
+    margin:auto;
+    padding:10px;
+    border-radius:8px;
+    box-shadow:0px 4px 8px rgb(165, 175, 149);
+
+}
+.product{
+    background-color:skyblue;
+    display:flex;
+    border-radius:10px;
+    padding:6px;
+    margin:5px;
+
+}
+button{
+    border-radius:5px;
+    background-color: white
+    
+}
+button:hover{
+    background-color: rgb(179, 169, 169);
+}

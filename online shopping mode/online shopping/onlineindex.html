@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Shopping - Electronics</title>
+    <link rel="stylesheet" href="onlinestyle.css">
+</head>
+<body>
+
+    <header>
+        <h1>Online Electronics Store</h1>
+    </header>
+
+    <section class="product-container">
+
+        <!-- Smartphone -->
+        <div class="product-card">
+            <img src="image.png" alt="Smartphone">
+            <h2>Smartphone</h2>
+            <p>₹12,999</p>
+            <button onclick="addToCart('Smartphone', 12999)">Add to Cart</button>
+        </div>
+
+        <!-- Laptop -->
+        <div class="product-card">
+            <img src="image copy.png" alt="Laptop">
+            <h2>Laptop</h2>
+            <p>₹49,999</p>
+            <button onclick="addToCart('Laptop', 49999)">Add to Cart</button>
+        </div>
+
+        <!-- Wireless Headphones -->
+        <div class="product-card">
+            <img src="image copy 2.png" alt="Headphones">
+            <h2>Wireless Headphones</h2>
+            <p>₹2,499</p>
+            <button onclick="addToCart('Wireless Headphones', 2499)">Add to Cart</button>
+        </div>
+
+        <!-- Smartwatch -->
+        <div class="product-card">
+            <img src="image copy 3.png" alt="Smartwatch">
+            <h2>Smartwatch</h2>
+            <p>₹3,499</p>
+            <button onclick="addToCart('Smartwatch', 3499)">Add to Cart</button>
+        </div>
+
+        <!-- Bluetooth Speaker -->
+        <div class="product-card">
+            <img src="image copy 4.png" alt="Bluetooth Speaker">
+            <h2>Bluetooth Speaker</h2>
+            <p>₹1,999</p>
+            <button onclick="addToCart('Bluetooth Speaker', 1999)">Add to Cart</button>
+        </div>
+
+        <!-- Tablet -->
+        <div class="product-card">
+            <img src="image copy 5.png" alt="Tablet">
+            <h2>Tablet</h2>
+            <p>₹15,999</p>
+            <button onclick="addToCart('Tablet', 15999)">Add to Cart</button>
+        </div>
+
+        <!-- Power Bank -->
+        <div class="product-card">
+            <img src="image copy 6.png" alt="Power Bank">
+            <h2>Power Bank</h2>
+            <p>₹999</p>
+            <button onclick="addToCart('Power Bank', 999)">Add to Cart</button>
+        </div>
+
+        <!-- DSLR Camera -->
+        <div class="product-card">
+            <img src="image copy 7.png" alt="Camera">
+            <h2>DSLR Camera</h2>
+            <p>₹38,499</p>
+            <button onclick="addToCart('DSLR Camera', 38499)">Add to Cart</button>
+        </div>
+
+    </section>
+
+    <section class="cart-section">
+        <h2>Your Cart</h2>
+        <ul id="cartList"></ul>
+        <h3 id="totalAmount">Total: ₹0</h3>
+    </section>
+    <script src="onlinescript.js"></script>
+</body>
+</html>
+
