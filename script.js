@@ -1,46 +1,94 @@
-const pr=document.getElementById("products-container");
-//dynamically generated  the elements from the server
-const items = [
-    { id: 1, name: "Smartphone", price: 14999 },
-    { id: 2, name: "Laptop", price: 52999 },
-    { id: 3, name: "Bluetooth Headphones", price: 1999 },
-    { id: 4, name: "Smart Watch", price: 2999 },
-    { id: 5, name: "Wireless Mouse", price: 499 }
-  ];
-  items.forEach(function(item){
-
-    //it gone to each and everyone
-    //const productrow=`
-   // <div class="product">
-    //<p>${item.name}-Rs.${item.price}</p>
-    //<button>ADD TO CART</button>
-    //</div>
-   // `;
-   // pr.insertAdjacentElement("beforeend",productrow);
-
-   //another method
-
-   const divelem=document.createElement('div');
-   divelem.classname="product";
-   divelem.innerHTML=`
-   <p>${item.name}-Rs.${item.price}</p>
-   <button onclick="addtocart()">ADD TO CART</button>`;
-   pr.appendChild(divelem);
-  });
-  //destructuring 
-  //it is useful in  foreach  we are defining like${} there we are define them 
-  //every time to that this is best
-
-  //const testbut=document.getElementById("testing");
-  //testbut.addEventListener('click',function(){
-   // console.log("click on teting button");
-  //})
- // function test(val){
-    ///console.log("clicked on testing button",val);
-  //}
-  function addtocart(){
-    console.log("add to cart clicked");
+// --------------------
+// Library Data
+// --------------------
+let library = [
+  {
+    bookName: "Digital Electronics",
+    total: 5,
+    issued: []
+  },
+  {
+    bookName: "Verilog HDL",
+    total: 3,
+    issued: []
+  },
+  {
+    bookName: "JavaScript Basics",
+    total: 4,
+    issued: []
   }
-  
+];
 
+// --------------------
+// Load Books into Dropdown
+// --------------------
+let select = document.getElementById("bookSelect");
 
+library.forEach((book, index) => {
+  let option = document.createElement("option");
+  option.value = index;
+  option.text = book.bookName;
+  select.add(option);
+});
+
+// --------------------
+// Issue Book Function
+// --------------------
+function issueBook() {
+  let studentName = document.getElementById("studentName").value.trim();
+  let bookIndex = document.getElementById("bookSelect").value;
+
+  if (studentName === "") {
+    alert("Please enter student name");
+    return;
+  }
+
+  let book = library[bookIndex];
+
+  // Check availability
+  if (book.total === 0) {
+    alert("Book not available");
+    return;
+  }
+
+  // Prevent same student taking same book again
+  if (book.issued.includes(studentName)) {
+    alert("This student already took this book");
+    return;
+  }
+
+  // Issue book
+  book.total--;
+  book.issued.push(studentName);
+
+  document.getElementById("studentName").value = "";
+
+  displayBooks();
+}
+
+// --------------------
+// Display Books
+// --------------------
+function displayBooks() {
+  let bookDiv = document.getElementById("bookList");
+  bookDiv.innerHTML = "";
+
+  library.forEach(book => {
+    let students =
+      book.issued.length > 0 ? book.issued.join(", ") : "None";
+
+    bookDiv.innerHTML += `
+      <div class="book">
+        <h3>${book.bookName}</h3>
+        <p><strong>Available Copies:</strong> ${book.total}</p>
+        <p><strong>Total Students Taken:</strong> ${book.issued.length}</p>
+        <p><strong>Student Names:</strong> ${students}</p>
+      </div>
+    `;
+  });
+}
+
+// --------------------
+// Initial Display
+// --------------------
+displayBooks();
